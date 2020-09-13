@@ -1,0 +1,34 @@
+﻿@model List<Product>
+
+@{
+    ViewData["Title"] = "LinkPage";
+}
+<style>
+    .hide {
+        display: none;
+    }
+
+    .myDIV:hover + .hide {
+        display: block;
+        color: red;
+    }
+</style>
+
+<h1>LinkPage</h1>
+
+@foreach (Product cat in Model)
+{
+<table>
+    <tr>
+        <td>
+            <div class="myDIV">
+                <a href="/Home/Category?catid=@cat.id">@cat.name</a>
+            </div>
+
+            <div class="hide">@cat.description: $@cat.price</div>
+        </td>
+    </tr>
+</table>
+    <br />
+}
+
